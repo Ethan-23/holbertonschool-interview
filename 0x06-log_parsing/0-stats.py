@@ -6,7 +6,7 @@ import sys
 
 def printValues(calls, file_size):
     codes = [200, 301, 400, 401, 403, 404, 405, 500]
-    print("File Size: {}".format(file_size))
+    print("File size: {}".format(file_size))
     for i in range(len(codes)):
         if calls[i] > 0:
             print("{}: {}".format(codes[i], calls[i]))
