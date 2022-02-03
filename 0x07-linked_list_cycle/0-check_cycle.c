@@ -19,7 +19,7 @@ int check_cycle(listint_t *list)
 		temp = temp->next;
 		if (loopNum == temp->n)
 			count++;
-		if (count > 5)
+		if (count > 7)
 			return (1);
 	}
 	return (0);
