@@ -26,5 +26,5 @@ int check_cycle(listint_t *list)
 		if (count > 5)
 			return (1);
 	}
-	return (1);
+	return (0);
 }
