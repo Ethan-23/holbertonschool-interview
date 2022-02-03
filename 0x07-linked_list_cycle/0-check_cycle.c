@@ -24,7 +24,7 @@ int check_cycle(listint_t *list)
 		if (loopNum == temp->n)
 			count++;
 		if (count > 5)
-			return (0);
+			return (1);
 	}
-	return (0);
+	return (1);
 }
