@@ -10,16 +10,20 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *temp = list;
-	int loopNum = temp->n;
+	listint_t *temp;
+	int loopNum = 0;
 	int count = 0;
 
+	if (list == NULL)
+		return (0);
+	temp = list;
+	loopNum = temp->n;
 	while (temp->next != NULL)
 	{
 		temp = temp->next;
 		if (loopNum == temp->n)
 			count++;
-		if (count > 7)
+		if (count > 5)
 			return (1);
 	}
 	return (0);
