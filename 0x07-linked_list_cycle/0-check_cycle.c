@@ -17,6 +17,8 @@ int check_cycle(listint_t *list)
 	if (list == NULL)
 		return (0);
 	temp = list;
+	if (temp == NULL)
+		return (0);
 	loopNum = temp->n;
 	while (temp->next != NULL)
 	{
