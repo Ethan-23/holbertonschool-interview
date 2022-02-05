@@ -14,6 +14,7 @@ int check_cycle(listint_t *list)
 	int loopNum = 0;
 	int count = 0;
 	int space = 0;
+	int max = 2;
 
 	if (list == NULL)
 		return (0);
@@ -26,9 +27,9 @@ int check_cycle(listint_t *list)
 		temp = temp->next;
 		if (loopNum == temp->n)
 			count++;
-		if (count > 5)
+		if (count > max)
 			return (1);
-		if (space > 5)
+		if (space > max)
 			loopNum = temp->n;
 		space++;
 	}
