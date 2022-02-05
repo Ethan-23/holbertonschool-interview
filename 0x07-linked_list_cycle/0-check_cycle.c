@@ -13,6 +13,7 @@ int check_cycle(listint_t *list)
 	listint_t *temp;
 	int loopNum = 0;
 	int count = 0;
+	int space = 0;
 
 	if (list == NULL)
 		return (0);
@@ -27,6 +28,9 @@ int check_cycle(listint_t *list)
 			count++;
 		if (count > 5)
 			return (1);
+		if (space > 5)
+			loopNum = temp->n;
+		space++;
 	}
 	return (0);
 }
