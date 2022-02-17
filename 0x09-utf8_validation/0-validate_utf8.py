@@ -13,7 +13,7 @@ def validUTF8(data):
         if len(binary) > 8:
             return False
         if check == 0:
-            while binary[check] == '1':
+            while binary[check] == '1' and check < 8:
                 check += 1
             if check > 1:
                 check -= 1
@@ -22,4 +22,6 @@ def validUTF8(data):
                 check -= 1
             else:
                 return False
-    return True
+    if check == 0:
+        return True
+    return False
