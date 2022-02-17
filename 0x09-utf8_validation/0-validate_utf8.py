@@ -7,12 +7,16 @@ def validUTF8(data):
     data - incoming list of integers to validate
     Return: True if data is a valid UTF-8 encoding, else return False
     """
+    if data == None:
+        return False
     check = 0
     for i in range(len(data)):
         binary = toBinary(data[i])
         if check == 0:
             while binary[check] == '1':
                 check += 1
+            if check > 4:
+                return False
         else:
             if binary[0] != '1' and binary[1] != '0':
                 return False
