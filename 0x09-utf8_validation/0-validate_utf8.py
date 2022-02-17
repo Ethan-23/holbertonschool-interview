@@ -17,6 +17,8 @@ def validUTF8(data):
                 check += 1
             if check > 1:
                 check -= 1
+            if check > 3:
+                return False
         else:
             if binary[0] == '1' and binary[1] == '0':
                 check -= 1
