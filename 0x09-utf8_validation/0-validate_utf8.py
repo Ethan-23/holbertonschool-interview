@@ -9,7 +9,7 @@ def validUTF8(data):
     """
     check = 0
     for i in range(len(data)):
-        binary = toBinary(data[i])
+        binary = format(data[i], "08b")
         if len(binary) > 8:
             return False
         if check == 0:
@@ -20,10 +20,3 @@ def validUTF8(data):
                 return False
             check -= 1
     return True
-
-
-def toBinary(number):
-    """
-    number - input to conver to 8 bit binary
-    """
-    return format(number, "08b")
