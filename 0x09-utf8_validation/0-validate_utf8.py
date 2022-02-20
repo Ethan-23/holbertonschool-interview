@@ -11,7 +11,7 @@ def validUTF8(data):
     for i in range(len(data)):
         binary = format(data[i], "08b")
         if len(binary) > 8:
-            return False
+            binary = binary[-8:]
         if check == 0:
             while binary[check] == '1' and check < 8:
                 check += 1
