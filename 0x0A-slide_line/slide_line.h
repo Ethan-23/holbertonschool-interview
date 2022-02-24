@@ -7,6 +7,8 @@
 #include <stdio.h>
 
 int slide_line(int *line, size_t size, int direction);
+void left(int *line, size_t size, int direction);
+void right(int *line, size_t size, int direction);
 
 
 #endif /* LISTS_H */
