@@ -11,7 +11,7 @@
  * @size: Number of elements in @line
  * @direction: direction that the numbers move in (1 = left, 2 = right)
  */
-void right(int *line, size_t size, int direction)
+void right(int *line, size_t size)
 {
 	long int check = 0;
 	long int temp = 0;
@@ -55,7 +55,7 @@ void right(int *line, size_t size, int direction)
  * @size: Number of elements in @line
  * @direction: direction that the numbers move in (1 = left, 2 = right)
  */
-void left(int *line, size_t size, int direction)
+void left(int *line, size_t size)
 {
 	long int check = 0;
 	long int temp = 0;
@@ -101,16 +101,10 @@ void left(int *line, size_t size, int direction)
  */
 int slide_line(int *line, size_t size, int direction)
 {
-	long int check = 0;
-	long int temp = 0;
-	long int hold = size;
-	long int i = 0;
-	long int j = 0;
-
 	if (direction == 1)
-		right(line, size, direction);
+		right(line, size);
 	else if (direction == 2)
-		left(line, size, direction);
+		left(line, size);
 	else
 		return (0);
 	return (1);
