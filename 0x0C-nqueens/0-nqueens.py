@@ -3,6 +3,7 @@
 
 import sys
 
+
 if len(sys.argv) != 2:
     print("Usage: nqueens N")
     exit(1)
@@ -13,41 +14,31 @@ if int(sys.argv[1]) < 4:
     print("N must be at least 4")
     exit(1)
 number = int(sys.argv[1])
+counter = 0
+allspots = []
+checkspots = []
+prev = -1
 
-boards = []
-times = 0
-while len(boards) != number - 2:
-    ilist = []
-    jlist = []
-    board = []
-    prev = times - 1
-    cont = 0
-    for i in range(number):
-        for j in range(number):
-            found = 1
-            if i != j and i not in ilist and j not in jlist:
-                for k in range(len(boards)):
-                    if [i, j] in boards[k]:
-                        cont = 1
-                    if len(boards) == number - 3:
-                        if [j, i] in boards[k]:
-                            found = 0
-                if cont == 1:
-                    cont = 0
+while len(allspots) < number - 2:
+    cols = []
+    rows = []
+    spots = []
+    for col in range(number):
+        for row in range(number):
+            if col == row or col in cols or row in rows or \
+               [col, row] in checkspots or [row, col] in spots:
+                continue
+            if prev + 2 + counter <= number - 1:
+                if prev + 2 + counter != row:
                     continue
-                if len(boards) == number - 3:
-                    if found == 1:
-                        continue
-                if j == prev + 2 and [j, i] not in board:
-                    ilist.append(i)
-                    jlist.append(j)
-                    prev = j + times
-                    board.append([i, j])
-                elif prev + 2 > number - 1 and [j, i] not in board:
-                    ilist.append(i)
-                    jlist.append(j)
-                    prev = j + times
-                    board.append([i, j])
-    print(board)
-    boards.append(board)
-    times += 1
+            if counter > (number-2)/2:
+                if [row, col] not in checkspots:
+                    continue
+            rows.append(row)
+            cols.append(col)
+            spots.append([col, row])
+            checkspots.append([col, row])
+            prev = row
+    print(spots)
+    allspots.append(spots)
+    counter += 1
