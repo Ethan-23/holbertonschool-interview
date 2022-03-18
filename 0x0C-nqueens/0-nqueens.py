@@ -13,6 +13,7 @@ if not str.isdigit(sys.argv[1]):
 if int(sys.argv[1]) < 4:
     print("N must be at least 4")
     exit(1)
+
 number = int(sys.argv[1])
 counter = 0
 allspots = []
@@ -23,6 +24,9 @@ while len(allspots) < number - 2:
     cols = []
     rows = []
     spots = []
+    snum = number / 2
+    if number % 2 != 0:
+        snum = (number - 2) / 2 + 1
     for col in range(number):
         for row in range(number):
             if col == row or col in cols or row in rows or \
@@ -31,7 +35,7 @@ while len(allspots) < number - 2:
             if prev + 2 + counter <= number - 1:
                 if prev + 2 + counter != row:
                     continue
-            if counter > (number-2)/2:
+            if counter >= snum:
                 if [row, col] not in checkspots:
                     continue
             rows.append(row)
