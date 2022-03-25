@@ -3,36 +3,47 @@
 #include "binary_trees.h"
 
 /**
- * sorted_array_to_avl - Prints an array of integers
+ * sortedArray - Prints an array of integers
  *
- * @array: Given Array
- * @size: Size of the array
+ * @arr: Given Array
+ * @start: Size of the array
+ * @end: thing
+ * @par: thing
+ * Return: t
  */
 
 avl_t *sortedArray(int *arr, int start, int end, avl_t *par)
 {
-    avl_t *root;
-    int mid;
+	avl_t *root;
+	int mid;
 
-    if (start > end)
-        return (NULL);
-    
-    mid = (start + end) / 2;
-    root = malloc(sizeof(avl_t));
-    if (root == NULL)
-        return (NULL);
-    root->n = arr[mid];
-    root->left = NULL;
-    root->right = NULL;
-    root->parent = par;
+	if (start > end)
+		return (NULL);
 
-    root->left = sortedArray(arr, start, mid - 1, root);
-    root->right = sortedArray(arr, mid + 1, end, root);
-    
-    return(root);
+	mid = (start + end) / 2;
+	root = malloc(sizeof(avl_t));
+	if (root == NULL)
+		return (NULL);
+	root->n = arr[mid];
+	root->left = NULL;
+	root->right = NULL;
+	root->parent = par;
+
+	root->left = sortedArray(arr, start, mid - 1, root);
+	root->right = sortedArray(arr, mid + 1, end, root);
+
+	return (root);
 }
+
+/**
+ * sorted_array_to_avl - Prints an array of integers
+ *
+ * @array: Given Array
+ * @size: Size of the array
+ * Return: t
+ */
 
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-    return(sortedArray(array, 0, (int)size - 1, NULL));
+	return (sortedArray(array, 0, (int)size - 1, NULL));
 }
