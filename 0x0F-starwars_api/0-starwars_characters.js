@@ -7,10 +7,13 @@ request(url, (error, response, body) => {
   const json = JSON.parse(body);
   let i = 0;
   for (i in json.characters) {
-    request(json.characters[i], (error, response, body) => {
-      if (error) console.log(error);
-      const json2 = JSON.parse(body);
-      console.log(json2.name);
-    });
+    getCharacter(json.characters[i]);
   }
 });
+
+async function getCharacter (url) {
+  await request(url, (error, response, body) => {
+    if (error) console.log(error);
+    console.log(JSON.parse(body).name);
+  });
+}
