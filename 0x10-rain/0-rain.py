@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-"""Rain"""
+"""0. Rain"""
 
 
 def rain(walls):
-    """Rain"""
+    """
+    Checks the amount of space between walls
+    (amount of spaces between numbers in array width & height)
+    """
     amount = 0
     for i in range(len(walls)):
         if walls[i] != 0:
