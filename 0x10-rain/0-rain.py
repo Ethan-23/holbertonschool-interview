@@ -4,7 +4,6 @@
 
 def rain(walls):
     """Rain"""
-    print(walls)
     amount = 0
     for i in range(len(walls)):
         if walls[i] != 0:
