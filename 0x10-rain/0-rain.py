@@ -8,7 +8,7 @@ def rain(walls):
     (amount of spaces between numbers in array width & height)
     """
     amount = 0
-    
+
     for i in range(len(walls)):
         sub = 0
         if walls[i] != 0:
@@ -21,7 +21,7 @@ def rain(walls):
                     check = low * (j - i - 1)
                     if check == 0:
                         sub += walls[j]
-                        continue    
+                        continue
                     amount += check - sub
                     break
     return amount
