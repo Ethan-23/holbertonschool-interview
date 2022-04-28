@@ -36,38 +36,26 @@ int find_value(int *array, int start, int end, int value, size_t size)
 
 	if (size % 2 != 0)
 		next = (size + 1) / 2 + start;
-	printf("Searching in array: ");
 	print_array(array, start, end);
-	if (array[next] <= value)
+	if (size > 2)
 	{
-		start = next;
-		size = end - start;
-	}
-	else
-	{
-		end = next;
-		size = end - start;
-	}
-	if (size <= 2)
-	{
-		printf("Searching in array: ");
-		print_array(array, start, end);
-		if (array[start] == value)
+		if (array[next] <= value)
 		{
-			return (start);
-		}
-		else if (array[end] == value)
-		{
-			return (end);
+			start = next;
+			size = end - start;
 		}
 		else
 		{
-			printf("Searching in array: ");
-			print_array(array, start + 1, end);
+			end = next;
+			size = end - start;
 		}
-	}
-	else
 		return (find_value(array, start, end, value, size));
+	}
+	if (array[start] == value)
+		return (start);
+	else if (array[end] == value)
+		return (end);
+	print_array(array, start + 1, end);
 	return (-1);
 }
 
@@ -82,6 +70,7 @@ void print_array(int *array, int start, int end)
 {
 	int i;
 
+	printf("Searching in array: ");
 	for (i = start; i < end; i++)
 	{
 		if (i < end - 1)
