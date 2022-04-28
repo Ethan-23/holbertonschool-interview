@@ -12,7 +12,7 @@
 int advanced_binary(int *array, size_t size, int value)
 {
 	int start = 0;
-	int end = size;
+	int end = size - 1;
 
 	if (!array)
 		return (-1);
@@ -36,18 +36,18 @@ int find_value(int *array, int start, int end, int value, size_t size)
 
 	if (size % 2 != 0)
 		next = (size + 1) / 2 + start;
-	print_array(array, start, end);
+	print_array(array, start, size);
 	if (size > 2)
 	{
 		if (array[next] <= value)
 		{
 			start = next;
-			size = end - start;
+			size = end - start + 1;
 		}
 		else
 		{
-			end = next;
-			size = end - start;
+			end = next - 1;
+			size = end - start + 1;
 		}
 		return (find_value(array, start, end, value, size));
 	}
@@ -55,7 +55,7 @@ int find_value(int *array, int start, int end, int value, size_t size)
 		return (start);
 	else if (array[end] == value)
 		return (end);
-	print_array(array, start + 1, end);
+	print_array(array, start + 1, size - 1);
 	return (-1);
 }
 
@@ -63,20 +63,20 @@ int find_value(int *array, int start, int end, int value, size_t size)
  * print_array - Entry point
  * @array: array
  * @start: start
- * @end: end
+ * @size: end
  * Return: Always EXIT_SUCCESS
  */
-void print_array(int *array, int start, int end)
+void print_array(int *array, int start, int size)
 {
 	int i;
 
 	printf("Searching in array: ");
-	for (i = start; i < end; i++)
+	for (i = 0; i < size; i++)
 	{
-		if (i < end - 1)
-			printf("%d, ", array[i]);
+		if (i < size - 1)
+			printf("%d, ", array[start + i]);
 		else
-			printf("%d\n", array[i]);
+			printf("%d\n", array[start + i]);
 	}
 }
 
