@@ -14,6 +14,9 @@ int advanced_binary(int *array, size_t size, int value)
 	int start = 0;
 	int end = size;
 
+	if (!array)
+		return(-1);
+
 	return (find_value(array, start, end, value, size));
 }
 
