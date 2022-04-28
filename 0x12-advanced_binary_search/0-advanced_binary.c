@@ -39,8 +39,8 @@ int find_value(int *array, int start, int end, int value, size_t size)
 	{
 		next = size / 2 + start;
 		if (size % 2 != 0)
-			next = (size + 1) / 2 + start;
-		if (array[next] <= value)
+			next = size / 2 + start + 1;
+		if (array[next] <= value && array[next - 1] != value)
 		{
 			start = next;
 			size = end - start + 1;
@@ -80,4 +80,3 @@ void print_array(int *array, int start, int size)
 			printf("%d\n", array[start + i]);
 	}
 }
-
