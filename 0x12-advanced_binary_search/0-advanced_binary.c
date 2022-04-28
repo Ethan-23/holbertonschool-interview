@@ -32,13 +32,14 @@ int advanced_binary(int *array, size_t size, int value)
  */
 int find_value(int *array, int start, int end, int value, size_t size)
 {
-	int next = size / 2 + start;
-
-	if (size % 2 != 0)
-		next = (size + 1) / 2 + start;
+	int next;
+	
 	print_array(array, start, size);
 	if (size > 2)
 	{
+		next = size / 2 + start;
+		if (size % 2 != 0)
+			next = (size + 1) / 2 + start;
 		if (array[next] <= value)
 		{
 			start = next;
