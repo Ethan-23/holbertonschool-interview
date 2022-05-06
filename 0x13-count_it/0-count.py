@@ -31,7 +31,7 @@ def count_words(subreddit, word_list, after='null', word_count=[]):
     if after not in ["NULL", 'null', None, "None"]:
         return count_words(subreddit, word_list, after, word_count)
     else:
-        word_dict = {i: word_count.count(i) for i in word_count }
+        word_dict = {i: word_count.count(i) for i in word_count}
         word_dict = {k: v for k, v in sorted(word_dict.items(),
                                              key=lambda item: item[1],
                                              reverse=True)}
