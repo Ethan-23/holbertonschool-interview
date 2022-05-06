@@ -8,8 +8,9 @@ def count_words(subreddit, word_list, after='null', word_count=[]):
     """Counts words in word_list of given subreddit"""
     url = "https://www.reddit.com/r/" + subreddit + "/hot.json"
     new = []
-    [new.append(x) for x in word_list if x not in new]
-    word_list = new
+    if after == 'null':
+        [new.append(x) for x in word_list if x not in new]
+        word_list = new
     headers = {
             'User-Agent': 'My User Agent 1.0',
     }
