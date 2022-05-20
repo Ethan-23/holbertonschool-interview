@@ -144,10 +144,11 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
-	if (!atoi(argv[1]) || !atoi(argv[2]))
+	if (atoi(argv[1]) == 0 || atoi(argv[2]) == 0)
 	{
-		printf("Error\n");
-		exit(98);
+		_putchar('0');
+		_putchar('\n');
+		return (0);
 	}
 	if (strchr(argv[1], '.') || strchr(argv[2], '.'))
 	{
