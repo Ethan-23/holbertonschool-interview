@@ -15,7 +15,7 @@ def rotate_2d_matrix(matrix):
         copy.append(temp)
     for row in range(len(matrix)):
         if row != 0:
-            startrow = 2
+            startrow = len(matrix[0]) - 1
             startcol += 1
         for col in range(len(matrix[0])):
             matrix[row][col] = copy[startrow][startcol]
