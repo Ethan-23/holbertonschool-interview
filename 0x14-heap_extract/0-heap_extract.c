@@ -40,7 +40,6 @@ heap_t *get_last(heap_t *root)
 /**
  * heap_reorder - reorders the heap
  * @root: root
- * Return: returns total height of tree
  */
 void heap_reorder(heap_t *root)
 {
