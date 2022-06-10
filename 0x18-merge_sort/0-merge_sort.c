@@ -22,6 +22,14 @@ void merge(int *array_copy, int size, int middle, int *array)
 	}
 }
 
+/**
+ * merge_split - sorts the given array
+ * @array_copy: Copy of Given array
+ * @size: size of split arrays
+ * @array: Given array
+ * Return: void
+ */
+
 void merge_split(int *array_copy, int size, int *array)
 {
 	int middle = size / 2;
