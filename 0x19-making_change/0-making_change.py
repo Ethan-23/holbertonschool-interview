@@ -3,7 +3,7 @@
 
 
 def makeChange(coins, total):
-    """makeChange"""
+    """makeChange def"""
     tcoins = 0
     if total <= 0:
         return 0
