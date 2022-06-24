@@ -3,6 +3,7 @@
 Uses given list of coins to calculate how many you need to reach the total
 """
 
+
 def makeChange(coins, total):
     """
     makeChange
