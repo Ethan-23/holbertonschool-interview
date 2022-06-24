@@ -15,9 +15,8 @@ def makeChange(coins, total):
         return 0
     coins.sort(reverse=True)
     for i in coins:
-        while total >= i:
-            total -= i
-            tcoins += 1
+        tcoins += total // i
+        total = total % i
     if total > 0:
         return -1
     return tcoins
