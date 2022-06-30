@@ -1,6 +1,18 @@
-#include <stdio.h>
-#include <string.h>
 #include "list.h"
+
+/**
+ * letter_count - counts chars in given word
+ * @word: given word to count letters
+ * Return: number of chars
+ */
+unsigned long int letter_count(char *word)
+{
+	unsigned long int i = 0;
+
+	for (i = 0; word[i]; i++)
+		continue;
+	return (i);
+}
 
 /**
  * add_node_end - Add a new node to the end of a double circular linked list
@@ -21,7 +33,7 @@ List *add_node_end(List **list, char *str)
 	if (temp_node == NULL)
 		return (NULL);
 
-	temp_node->str = malloc(sizeof(char) * strlen(str) + 1);
+	temp_node->str = malloc(sizeof(char) * letter_count(str) + 1);
 
 	if (temp_node->str == NULL)
 	{
@@ -29,7 +41,7 @@ List *add_node_end(List **list, char *str)
 		return (NULL);
 	}
 
-	for (i = 0; i < strlen(str) + 1; i++)
+	for (i = 0; i < letter_count(str) + 1; i++)
 		temp_node->str[i] = str[i];
 
 	temp_node->str[i] = '\0';
@@ -71,7 +83,7 @@ List *add_node_begin(List **list, char *str)
 	if (temp_node == NULL)
 		return (NULL);
 
-	temp_node->str = malloc(sizeof(char) * strlen(str) + 1);
+	temp_node->str = malloc(sizeof(char) * letter_count(str) + 1);
 
 	if (temp_node->str == NULL)
 	{
@@ -79,7 +91,7 @@ List *add_node_begin(List **list, char *str)
 		return (NULL);
 	}
 
-	for (i = 0; i < strlen(str) + 1; i++)
+	for (i = 0; i < letter_count(str) + 1; i++)
 		temp_node->str[i] = str[i];
 
 	temp_node->str[i] = '\0';
