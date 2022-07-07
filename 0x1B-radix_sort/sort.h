@@ -2,7 +2,6 @@
 #define SORT_H
 
 #include <stdio.h>
-#include <stdlib.h>
 
 void radix_sort(int *array, size_t size);
 int getMax(int *array, size_t size);
