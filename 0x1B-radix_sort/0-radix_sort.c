@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stdlib.h>
 
 /**
  * getMax - Entry point
@@ -27,7 +28,7 @@ int getMax(int *array, size_t size)
  */
 void sort(int *array, int size, int exp)
 {
-	int output[size];
+	int *output = malloc(sizeof(int) * size);
 	int i, count[10] = { 0 };
 
 	for (i = 0; i < size; i++)
@@ -44,6 +45,7 @@ void sort(int *array, int size, int exp)
 
 	for (i = 0; i < size; i++)
 		array[i] = output[i];
+	free(output);
 }
 
 /**
