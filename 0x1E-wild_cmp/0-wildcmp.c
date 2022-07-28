@@ -1,6 +1,18 @@
 #include "holberton.h"
-#include <stdio.h>
 #include <string.h>
+
+/**
+ * stringlen - check the code for Holberton School students.
+ * @string: give string
+ * @length: length of string
+ * Return: length of given string.
+ */
+int stringlen(char *string, int length)
+{
+	if (string[length] != '\0')
+		return (stringlen(string, length + 1));
+	return (length);
+}
 
 /**
  * passastr - check the code for Holberton School students.
@@ -27,7 +39,7 @@ int passastr(char *string, int index)
  */
 int checktopletter(char *string, int index, char letter, int top)
 {
-	int len = strlen(string);
+	int len = stringlen(string, 0);
 
 	if (string[index] == letter)
 		top = index;
@@ -46,8 +58,8 @@ int checktopletter(char *string, int index, char letter, int top)
  */
 int compare_string(char *s1, char *s2, int i, int j)
 {
-	int len1 = strlen(s1);
-	int len2 = strlen(s2);
+	int len1 = stringlen(s1, 0);
+	int len2 = stringlen(s2, 0);
 
 	if (s2[j] == '*')
 	{
