@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <string.h>
 
 /**
  * stringlen - check the code for Holberton School students.
@@ -22,7 +21,7 @@ int stringlen(char *string, int length)
  */
 int passastr(char *string, int index)
 {
-	int len = strlen(string);
+	int len = stringlen(string, 0);
 
 	if (index < len - 1 && string[index] == '*')
 		return (passastr(string, index + 1));
