@@ -46,6 +46,8 @@ int regex_match(char const *str, char const *pattern)
 	int len2 = strlen(pattern);
 	int i = 0;
 
+	if(len1 == '\0' && len2 == '\0')
+		return(1);
 	for(i = 0; i < len1; i++)
 	{
 		if(i == len2 - 1 && pattern[i] == '*')
