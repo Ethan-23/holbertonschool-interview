@@ -14,7 +14,6 @@
 int checker(char const *str, char const *pattern, int index)
 {
 	int len1 = strlen(str);
-	int len2 = strlen(pattern);
 	int i = 0;
   
 	for (i = 0; i < len1; i++)
