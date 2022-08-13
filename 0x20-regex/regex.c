@@ -33,7 +33,7 @@ int checker(char const *str, char const *pattern, int index)
 		}
 		index++;
 	}
-	if (i != len1 - 1)
+	if (i != len1)
 		return (0);
 	return (1);
 }
