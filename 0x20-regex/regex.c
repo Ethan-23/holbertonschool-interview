@@ -4,7 +4,8 @@
 #include "regex.h"
 
 /**
- * checker - checks to see if the given string is in the given pattern at the given index.
+ * checker - checks to see if the given string is
+ * in the given pattern at the given index.
  * @str: given string
  * @pattern: given pattern
  * @index: given index to start with
@@ -15,12 +16,13 @@ int checker(char const *str, char const *pattern, int index)
 {
 	int len1 = strlen(str);
 	int i = 0;
-  
+
 	for (i = 0; i < len1; i++)
 	{
-		if(str[i] != pattern[index] && pattern[index] != '.' && pattern[index] != '*')
-			return(0);
-		while(pattern[index] == '*')
+		if (str[i] != pattern[index] && pattern[index]
+			!= '.' && pattern[index] != '*')
+			return (0);
+		while (pattern[index] == '*')
 		{
 			if (len1 - 1 == i || pattern[index + 1] == str[i])
 			{
@@ -31,7 +33,9 @@ int checker(char const *str, char const *pattern, int index)
 		}
 		index++;
 	}
-	return(1);
+	if (i != len1 - 1)
+		return (0);
+	return (1);
 }
 
 /**
@@ -46,14 +50,14 @@ int regex_match(char const *str, char const *pattern)
 	int len2 = strlen(pattern);
 	int i = 0;
 
-	if(len1 == '\0' && len2 == '\0')
-		return(1);
-	for(i = 0; i < len1; i++)
+	if (len1 == '\0' && len2 == '\0')
+		return (1);
+	for (i = 0; i < len1; i++)
 	{
-		if(i == len2 - 1 && pattern[i] == '*')
-			return(1);
-		if(checker(str, pattern, i) == 1)
-			return(1);
+		if (i == len2 - 1 && pattern[i] == '*')
+			return (1);
+		if (checker(str, pattern, i) == 1)
+			return (1);
 	}
-	return(0);
+	return (0);
 }
