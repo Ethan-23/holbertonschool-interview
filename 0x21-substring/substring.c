@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "substring.h"
 
@@ -14,9 +15,9 @@
 
 int *find_substring(char const *s, char const **words, int nb_words, int *n)
 {
-	int l = strlen(s);
-
-	if (s == NULL || words == NULL || nb_words == NULL || n == NULL || l == 0)
-		return (NULL);
+	(void)s;
+	(void)words;
+	(void)nb_words;
+	*n = 0;
 	return (NULL);
 }
