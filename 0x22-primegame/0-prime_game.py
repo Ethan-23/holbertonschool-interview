@@ -20,7 +20,6 @@ def isWinner(x, nums):
                     c += 1
             if c == 1:
                 prime.append(i)
-        print(prime)
 
         if prime == []:
             winner[0] += 1
