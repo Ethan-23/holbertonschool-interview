@@ -6,8 +6,9 @@ def isWinner(x, nums):
     """Prime Game"""
     winner = [0, 0]
 
-    prime = []
+    
     for roundnum in range(x):
+        prime = []
         tempx = []
         for i in range(nums[roundnum]):
             if i != 0:
@@ -19,6 +20,7 @@ def isWinner(x, nums):
                     c += 1
             if c == 1:
                 prime.append(i)
+        print(prime)
 
         if prime == []:
             winner[0] += 1
