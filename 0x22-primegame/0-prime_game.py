@@ -5,21 +5,26 @@
 def isWinner(x, nums):
     """Prime Game"""
     winner = [0, 0]
+
+    prime = []
     for roundnum in range(x):
         tempx = []
         for i in range(nums[roundnum]):
             if i != 0:
                 tempx.append(i + 1)
-            for turn in range(len(tempx)):
-                for check in range(turn + 1, len(tempx)):
-                    if tempx[check] % tempx[turn] == 0:
-                        tempx.pop(check)
+        for i in tempx:
+            c = 0
+            for j in range(1, i):
+                if i % j == 0:
+                    c += 1
+            if c == 1:
+                prime.append(i)
 
-        if tempx == []:
+        if prime == []:
             winner[0] += 1
-        elif len(tempx) % 2 != 0:
+        elif len(prime) % 2 != 0:
             winner[1] += 1
-        elif len(tempx) % 2 == 0:
+        elif len(prime) % 2 == 0:
             winner[0] += 1
 
     if winner[0] > winner[1]:
