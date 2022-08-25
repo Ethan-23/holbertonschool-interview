@@ -6,7 +6,6 @@ def isWinner(x, nums):
     """Prime Game"""
     winner = [0, 0]
 
-    
     for roundnum in range(x):
         prime = []
         tempx = []
